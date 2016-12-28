@@ -36,3 +36,12 @@ def browser():
 @service
 def torbrowser():
     return create_browser(create_profile(use_tor=True))
+
+
+__all__ = [
+    'USER_AGENT',
+    'browser',
+    'create_browser',
+    'create_profile',
+    'torbrowser',
+]
