@@ -1,6 +1,6 @@
-import bonobo_selenium as bbsel
+import bonobo_selenium
 
 
 def test_basics():
-    assert bbsel.browser
-    assert bbsel.torbrowser
+    assert bonobo_selenium.browser
+    assert bonobo_selenium.torbrowser
