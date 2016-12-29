@@ -5,12 +5,10 @@ from setuptools import setup, find_packages
 
 tolines = lambda c: list(filter(None, map(lambda s: s.strip(), c.split('\n'))))
 
-
 def read(filename, flt=None):
     with open(filename) as f:
         content = f.read().strip()
         return flt(content) if callable(flt) else content
-
 
 try:
     version = read('version.txt')
@@ -18,20 +16,24 @@ except:  # pylint: disable=bare-except
     version = 'dev'
 
 setup(
-    name='bonobo_selenium',
-    description='Bonobo Selenium Extension',
-    license='Apache License, Version 2.0',
-    install_requires=['bonobo', 'selenium >=3.0.2,<3.1'],
-    version=version,
-    long_description=read('README.rst'),
-    classifiers=read('classifiers.txt', tolines),
-    packages=find_packages(exclude=['ez_setup', 'example', 'test']),
-    include_package_data=True,
-    extras_require={
-        'dev': [
-            'coverage >=4.2,<4.3', 'mock >=2.0,<2.1', 'nose >=1.3,<1.4', 'pylint >=1.6,<1.7', 'pytest >=3,<4',
-            'pytest-cov >=2.4,<2.5', 'sphinx', 'sphinx_rtd_theme', 'yapf'
-        ]
-    },
-    url='https://bonobo-project.org/',
-    download_url='https://github.com/python-bonobo/bonobo-selenium/tarball/{version}'.format(version=version), )
+    name = 'bonobo_selenium',
+    description = 'Bonobo Selenium Extension',
+    license = 'Apache License, Version 2.0',
+    install_requires = ['bonobo', 'selenium >=3.0.2,<3.1'],
+    version = version,
+    long_description = read('README.rst'),
+    classifiers = read('classifiers.txt', tolines),
+    packages = find_packages(exclude=['ez_setup', 'example', 'test']),
+    include_package_data = True,
+    extras_require = {'dev': ['coverage >=4.2,<4.3',
+         'mock >=2.0,<2.1',
+         'nose >=1.3,<1.4',
+         'pylint >=1.6,<1.7',
+         'pytest >=3,<4',
+         'pytest-cov >=2.4,<2.5',
+         'sphinx',
+         'sphinx_rtd_theme',
+         'yapf']},
+    url = 'https://bonobo-project.org/',
+    download_url = 'https://github.com/python-bonobo/bonobo-selenium/tarball/{version}'.format(version=version),
+)

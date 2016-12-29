@@ -1,7 +1,7 @@
 # This file has been auto-generated.
 # All changes will be lost, see Projectfile.
 #
-# Updated at 2016-12-28 15:53:18.247898
+# Updated at 2016-12-29 08:29:42.805760
 
 PYTHON ?= $(shell which python)
 PYTHON_BASENAME ?= $(shell basename $(PYTHON))
@@ -12,14 +12,11 @@ VIRTUAL_ENV ?= .virtualenv-$(PYTHON_BASENAME)
 PIP ?= $(VIRTUAL_ENV)/bin/pip
 PYTEST ?= $(VIRTUAL_ENV)/bin/pytest
 PYTEST_OPTIONS ?= --capture=no --cov=bonobo_selenium --cov-report html
-SPHINX_OPTS ?= 
-SPHINX_BUILD ?= $(VIRTUAL_ENV)/bin/sphinx-build
-SPHINX_SOURCEDIR ?= docs
-SPHINX_BUILDDIR ?= $(SPHINX_SOURCEDIR)/_build
 YAPF ?= $(VIRTUAL_ENV)/bin/yapf
 YAPF_OPTIONS ?= -rip
+SPHINX_SOURCEDIR ?= docs
 
-.PHONY: $(SPHINX_SOURCEDIR) clean format install install-dev lint test
+.PHONY: clean format install install-dev lint test
 
 # Installs the local project dependencies.
 install: $(VIRTUAL_ENV)
@@ -49,9 +46,6 @@ lint: install-dev
 
 test: install-dev
 	$(PYTEST) $(PYTEST_OPTIONS) tests
-
-$(SPHINX_SOURCEDIR): install-dev
-	$(SPHINX_BUILD) -b html -D latex_paper_size=a4 $(SPHINX_OPTS) $(SPHINX_SOURCEDIR) $(SPHINX_BUILDDIR)/html
 
 format: install-dev
 	$(YAPF) $(YAPF_OPTIONS) .

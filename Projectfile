@@ -12,7 +12,6 @@ author_email = 'romain@dorgueil.net'
 
 enable_features = {
     'make',
-    'sphinx',
     'pytest',
     'git',
     'pylint',
