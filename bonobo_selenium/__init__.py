@@ -1,6 +1,5 @@
 import selenium.webdriver
 
-from bonobo import service
 from bonobo._version import __version__
 
 USER_AGENT = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_3) AppleWebKit/601.4.4 (KHTML, like Gecko) Version/9.0.3 Safari/601.4.4'
@@ -24,26 +23,18 @@ def create_profile(use_tor=False):
 
 def create_browser(profile):
     _browser = selenium.webdriver.Firefox(profile)
-    _browser.implicitly_wait(10)
-    _browser.set_page_load_timeout(10)
+    # _browser.implicitly_wait(10)
+    # _browser.set_page_load_timeout(10)
     return _browser
 
-
-@service
-def browser():
-    return create_browser(create_profile(use_tor=False))
-
-
-@service
-def torbrowser():
-    return create_browser(create_profile(use_tor=True))
+def create_chrome_browser():
+    browser = selenium.webdriver.Chrome()
+    return browser
 
 
 __all__ = [
     'USER_AGENT',
     '__version__',
-    'browser',
     'create_browser',
     'create_profile',
-    'torbrowser',
 ]
