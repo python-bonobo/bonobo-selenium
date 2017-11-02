@@ -1,4 +1,5 @@
 *$py.class
+*.iml
 *,cover
 *.egg
 *.egg-info/
