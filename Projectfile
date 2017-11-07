@@ -1,6 +1,9 @@
-# bonobo-selenium (see github.com/python-bonobo/bonobo-selenium)
+################################################################################
+# This file is the project manifest for bonobo-selenium.
+# It is used to maintain a lot of files, like setup.py, etc.
+#
 
-from edgy.project import require
+from medikit import require
 
 pytest = require('pytest')
 python = require('python')
@@ -15,10 +18,11 @@ python.setup(
     author='Romain Dorgueil',
     author_email='romain@dorgueil.net', )
 
-bonobo_version = '>=0.4,<0.5'
+bonobo_version = '>= 0.5.1'
+
 python.add_requirements(
     'bonobo ' + bonobo_version,
-    'selenium >=3.4,<3.5',
+    'selenium >=3.7,<3.8',
     dev=[
         'bonobo[dev] ' + bonobo_version,
     ], )
